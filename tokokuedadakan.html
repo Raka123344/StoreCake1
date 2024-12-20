@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Kue Online</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FastFoodRestaurant",
+        "name": "Toko Kue Dadakan",
+        "image": "",
+        "@id": "",
+        "url": "https://raka123344.github.io/Toko-Kue-Dadakan/",
+        "telephone": "+6285697706628",
+        "priceRange": "50000 - 70000",
+        "menu": "",
+        "servesCuisine": "",
+        "acceptsReservations": "false",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rajeg",
+            "addressLocality": "Tangerang",
+            "postalCode": "15540",
+            "addressCountry": "ID"
+        }  
+    }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                  "@context": "https://schema.org/", 
+                  "@type": "Product", 
+                  "name": "chocolate cake",
+                  "image": "https://media.istockphoto.com/id/1326149453/id/foto/irisan-kue-cokelat-hitam.jpg?s=612x612&w=0&k=20&c=XoIR1UiGfjB7Z6YJFFhe063nGg9YoaWLCCSqHQoSwB4=",
+                  "description": "Kue Coklat yang lezat dan manis.",
+                  "offers": {
+                    "@type": "Offer",
+                    "url": "",
+                    "priceCurrency": "IDR",
+                    "price": "50000",
+                    "availability": "https://schema.org/InStock",
+                    "itemCondition": "https://schema.org/NewCondition"
+                  }
+                },
+                {
+                    "@context": "https://schema.org/", 
+                    "@type": "Product", 
+                    "name": "Cheese cake",
+                    "image": "https://media.istockphoto.com/id/1364933651/id/foto/cheesecake-klasik.jpg?s=612x612&w=0&k=20&c=_kEGihrxC3MflUyMSty4UkglJhEABxpiwvMt10m3-cQ=",
+                    "description": "Kue Keju yang creamy dan lezat.",
+                    "offers": {
+                      "@type": "Offer",
+                      "url": "",
+                      "priceCurrency": "IDR",
+                      "price": "60000",
+                      "availability": "https://schema.org/InStock",
+                      "itemCondition": "https://schema.org/NewCondition"
+                    }
+                },
+                {
+                    "@context": "https://schema.org/", 
+                    "@type": "Product", 
+                    "name": "Red velvet cake",
+                    "image": "https://media.istockphoto.com/id/1316080097/id/foto/kue-red-velvet-dengan-blueberry-di-piring-putih-dengan-latar-belakang-hijau-tua.jpg?s=612x612&w=0&k=20&c=fp1AdL5Q6IpfaivodOUm8Yd5mWtTCOCU2Rgqj43--jA=",
+                    "description": "Kue Red Velvet yang manis dan cantik.",
+                    "offers": {
+                      "@type": "Offer",
+                      "url": "",
+                      "priceCurrency": "IDR",
+                      "price": "70000",
+                      "availability": "https://schema.org/InStock",
+                      "itemCondition": "https://schema.org/NewCondition"
+                    }
+                }
+            ]
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            background: linear-gradient(90deg, #ff8c00, #ff7a00);
+            color: white;
+            text-align : center;
+            padding: 20px;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: white;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .item-produk {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 15px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .item-produk:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-beli {
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-beli:hover {
+            background-color: #ff7a00;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        #keranjangList {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+
+        #keranjangList h3 {
+            margin: 0 0 10px;
+        }
+
+        #keranjangList ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #keranjangList li {
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #keranjangList button {
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #keranjangList button:hover {
+            background-color: #ff7a00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Toko Kue Dadakan</h1>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Mode Gelap</button>
+    </header>
+    <main>
+        <section class="produk">
+            <div class="item-produk">
+                <img src="https://media.istockphoto.com/id/1326149453/id/foto/irisan-kue-cokelat-hitam.jpg?s=612x612&w=0&k=20&c=XoIR1UiGfjB7Z6YJFFhe063nGg9YoaWLCCSqHQoSwB4=" alt="Kue Coklat">
+                <h3>Chocolate cake</h3>
+                <p>Harga: Rp 50.000</p>
+                <button class="btn-beli" onclick="tambahKeKeranjang('Chocolate cake', 50000)">Beli</button>
+            </div>
+            <div class="item-produk">
+                <img src="https://media.istockphoto.com/id/1364933651/id/foto/cheesecake-klasik.jpg?s=612x612&w=0&k=20&c=_kEGihrxC3MflUyMSty4UkglJhEABxpiwvMt10m3-cQ=" alt="Kue Keju">
+                <h3>Cheese cake</h3>
+                <p>Harga: Rp 60.000</p>
+                <button class="btn-beli" onclick="tambahKeKeranjang('Cheese cake', 60000)">Beli</button>
+            </div>
+            <div class="item-produk">
+                <img src="https://media.istockphoto.com/id/1316080097/id/foto/kue-red-velvet-dengan-blueberry-di-piring-putih-dengan-latar-belakang-hijau-tua.jpg?s=612x612&w=0&k=20&c=fp1AdL5Q6IpfaivodOUm8Yd5mWtTCOCU2Rgqj43--jA=" alt="Kue Red Velvet">
+                <h3> Red velvet cake</h3>
+                <p>Harga: Rp 70.000</p>
+                <button class="btn-beli" onclick="tambahKeKeranjang('Red velvet cake', 70000)">Beli</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Toko Kue Dadakan.</p>
+    </footer>
+    <div class="keranjang" onclick="toggleKeranjang()" aria-label="Lihat keranjang belanja">
+        🛒
+    </div>    
+    <button class="btn-beli" onclick="hitungTotalHarga()">Total Harga</button>
+    <button class="btn-beli" onclick="hapusKeranjang()">Kosongkan Keranjang</button>
+    
+    <script>
+        let keranjang = [];
+    
+        function tambahKeKeranjang(namaProduk, harga) {
+            const existingItem = keranjang.find(item => item.nama === namaProduk);
+            if (existingItem) {
+                existingItem.jumlah += 1;
+            } else {
+                keranjang.push({ nama: namaProduk, harga: harga, jumlah: 1 });
+            }
+            alert(namaProduk + " telah ditambahkan ke keranjang!");
+        }
+    
+        function lihatKeranjang() {
+            if (keranjang.length > 0) {
+                let daftarKeranjang = keranjang.map(item => `${item.nama} x${item.jumlah} - Rp ${(item.harga * item.jumlah).toLocaleString()}`).join('\n');
+                alert("Keranjang Belanja:\n" + daftarKeranjang);
+            } else {
+                alert("Keranjang belanja Anda kosong.");
+            }
+        }
+    
+        function hitungTotalHarga() {
+            if (keranjang.length > 0) {
+                let totalHarga = keranjang.reduce((total, item) => total + (item.harga * item.jumlah), 0);
+                alert("Total Harga: Rp " + totalHarga.toLocaleString());
+            } else {
+                alert("Keranjang belanja Anda kosong.");
+            }
+        }
+    
+        function hapusKeranjang() {
+            if (keranjang.length > 0) {
+                if (confirm("Apakah Anda yakin ingin mengosongkan keranjang?")) {
+                    keranjang = [];
+                    alert("Keranjang belanja Anda telah dikosongkan.");
+                }
+            } else {
+                alert("Keranjang belanja Anda sudah kosong.");
+            }
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const toggleBtn = document.querySelector('.theme-toggle');
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                toggleBtn.textContent = '☀️ Mode Terang';
+                toggleBtn.classList.add('dark-mode');
+                body.style.backgroundColor = '#333';
+                body.style.color = '#fff';
+            } else {
+                toggleBtn.textContent = '🌙 Mode Gelap';
+                toggleBtn.classList.remove('dark-mode');
+                body.style.backgroundColor = '#f4f4f9';
+                body.style.color = '#333';
+            }
+        }
+
+        function toggleKeranjang() {
+            const keranjangList = document.createElement('div');
+            keranjangList.id = 'keranjangList';
+            keranjangList.style.position = 'fixed';
+            keranjangList.style.bottom = '80px';
+            keranjangList.style.right = '20px';
+            keranjangList.style.background = 'white';
+            keranjangList.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+            keranjangList.style.padding = '20px';
+            keranjangList.style.borderRadius = '10px';
+            keranjangList.style.zIndex = '1000';
+
+            keranjangList.innerHTML = `
+                <h3>Keranjang Belanja</h3>
+                <ul>
+                    ${keranjang.map(item => `
+                        <li>
+                            ${item.nama} x${item.jumlah} - Rp ${(item.harga * item.jumlah).toLocaleString()}
+                            <button onclick="hapusDariKeranjang('${item.nama}')">Hapus</button>
+                        </li>
+                    `).join('')}
+                </ul>
+                <button onclick="tutupKeranjang()">Tutup</button>
+            `;
+
+            if (!document.getElementById('keranjangList')) {
+                document.body.appendChild(keranjangList);
+            }
+        }
+
+        function hapusDariKeranjang(nama) {
+            keranjang = keranjang.filter(item => item.nama !== nama);
+            perbaruiKeranjang();
+            toggleKeranjang();
+        }
+
+        function tutupKeranjang() {
+            const keranjangList = document.getElementById('keranjang List');
+            if (keranjangList) {
+                keranjangList.remove();
+            }
+        }
+    </script>
+</body>
+</html>
